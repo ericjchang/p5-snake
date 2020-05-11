@@ -1,12 +1,25 @@
-let color = 0;
+let s;
+let scl = 20;
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(600, 600);
+  s = new Snake();
 }
 
 function draw() {
-  color = map(mouseX, 0, 600, 0, 255);
-  background(color);
-  fill(250, 118, 222);
-  ellipse(mouseX, 200, 50, 50);
+  background(51);
+  s.update();
+  s.show();
+}
+
+function keyPressed() {
+  if (keyCode === UP_ARROW) {
+    s.dir(0, -1);
+  } else if (keyCode === DOWN_ARROW) {
+    s.dir(0, 1);
+  } else if (keyCode === RIGHT_ARROW) {
+    s.dir(1, 0);
+  } else if (keyCode === LEFT_ARROW) {
+    s.dir(-1, 0);
+  }
 }
