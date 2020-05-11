@@ -9,6 +9,11 @@ function Snake() {
     this.yspeed = y;
   };
 
+  this.eat = (pos) => {
+    let d = dist(this.x, this.y, pos.x, pos.y);
+    return d < 1 ? true : false;
+  };
+
   this.update = () => {
     this.x += this.xspeed * scl;
     this.y += this.yspeed * scl;
