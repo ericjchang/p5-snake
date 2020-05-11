@@ -19,10 +19,10 @@ function pickLocation() {
 
 function draw() {
   background(51);
+  if (s.eat(food)) pickLocation();
+  s.death();
   s.update();
   s.show();
-
-  if (s.eat(food)) pickLocation();
 
   fill(255, 0, 100);
   rect(food.x, food.y, scl, scl);
